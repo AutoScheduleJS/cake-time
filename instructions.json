@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "codeName": "couper x en p'tit morceaux"
+  },
+  {
+    "id": 2,
+    "codeName": "ajouter x dans y"
+  },
+  {
+    "id": 3,
+    "codeName": "écraser x avec y"
+  },
+  {
+    "id": 4,
+    "codeName": "remuer x rapidement a l'aide de y"
+  },
+  {
+    "id": 5,
+    "codeName": "tamiser x avec y dans z"
+  },
+  {
+    "id": 6,
+    "codeName": "verser x sur y, en remuant avec z"
+  },
+  {
+    "id": 7,
+    "codeName": "dissoudre x sur y dans z"
+  },
+  {
+    "id": 8,
+    "codeName": "incorporer x dans y en plusieurs fois, en pluie, sans trop travailler la pate"
+  },
+  {
+    "id": 9,
+    "codeName": "poser x sur un plan de travail fariné"
+  },
+  {
+    "id": 10,
+    "codeName": "écraser x sous votre paume en la repoussant. Ramassez la sur elle meme et recommencez pour rendre homogène"
+  },
+  {
+    "id": 11,
+    "codeName": "former une boule avec x et aplatissez la légèrement entre vos mains"
+  },
+  {
+    "id": 12,
+    "codeName": "envelopper x dans du film alimentaire"
+  },
+  {
+    "id": 13,
+    "codeName": "laisser reposer x au réfrigérateur"
+  }
+]
