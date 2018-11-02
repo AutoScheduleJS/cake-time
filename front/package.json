@@ -1,0 +1,44 @@
+{
+  "name": "@autoschedule/cake-time",
+  "version": "0.0.0",
+  "description": "Cake Time!",
+  "main": "dist/index.bundle.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "del-cli .cache",
+    "start": "npm run clean && parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AutoScheduleJS/cake-time.git"
+  },
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "emotion": "^9.2.6",
+    "emotion-theming": "^9.2.6",
+    "prop-types": "^15.6.2",
+    "react-spring": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.3.18",
+    "@types/react-dom": "^16.0.6",
+    "babel-core": "^6.26.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "del-cli": "^1.1.0",
+    "parcel-bundler": "^1.9.2",
+    "parcel-plugin-typescript": "^1.0.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "rxjs": "^6.3.3",
+    "rxjs-tslint": "^0.1.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.1.6",
+    "typescript-styled-plugin": "^0.12.0"
+  }
+}
