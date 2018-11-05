@@ -1,13 +1,12 @@
+import { withTheme } from 'emotion-theming';
 import * as React from 'react';
+import { BaseLayoutProps } from './base-layout/base-layout';
 
-class RootImpl extends React.PureComponent<{}> {
+class RootImpl extends React.PureComponent<{ theme?: any }> {
   render() {
-    return (
-      <React.Fragment>
-        <div>Cake Time!</div>
-      </React.Fragment>
-    );
+    const { theme } = this.props;
+    return <div {...BaseLayoutProps({ customTheme: theme })}>Cake Time!</div>;
   }
 }
 
-export const Root = RootImpl;
+export const Root = withTheme(RootImpl);
