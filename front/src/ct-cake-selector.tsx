@@ -16,6 +16,14 @@ interface CtCakeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
 
 interface CtCakeSelectorTheme {}
 
+interface CakeSuggestion {
+  name: string;
+}
+
+interface CtCakeState {
+  suggestion: CakeSuggestion[];
+}
+
 const defaultTheme = (theme: any): CtCakeSelectorTheme => merge({} as CtCakeSelectorTheme, theme);
 
 const themeToHostStyles = (_: CtCakeSelectorTheme) => {
@@ -24,17 +32,29 @@ const themeToHostStyles = (_: CtCakeSelectorTheme) => {
   };
 };
 
-class CtCakeSelectorImpl extends React.PureComponent<CtCakeSelectorFromState & CtCakeSelectorProps> {
+class CtCakeSelectorImpl extends React.PureComponent<
+  CtCakeSelectorFromState & CtCakeSelectorProps
+> {
+  state: CtCakeState;
+
+  constructor(props) {
+    super(props);
+    this.state = { suggestion: [] };
+  }
+
   componentDidMount() {
     fetch('/my-suggestions')
       .then(res => res.json())
-      .then(res => {
-        this.setState({
-          suggestions: res
-        });
-      }, err => {
-        console.error('Error while fetching my suggestions', err);
-      })
+      .then(
+        res => {
+          this.setState({
+            suggestions: res,
+          });
+        },
+        err => {
+          console.error('Error while fetching my suggestions', err);
+        }
+      );
   }
 
   render() {

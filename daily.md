@@ -34,3 +34,12 @@
 
 ## Goal for today
 - landing page
+
+# 6 nov 2018
+## ######------------------------------------------------------
+
+## Done
+- base components for suggestions
+
+## Goal for today
+- complete suggestions
