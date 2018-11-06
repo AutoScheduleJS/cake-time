@@ -18,10 +18,11 @@ interface CtCakeSelectorTheme {}
 
 interface CakeSuggestion {
   name: string;
+  id: any;
 }
 
 interface CtCakeState {
-  suggestion: CakeSuggestion[];
+  suggestions: CakeSuggestion[];
 }
 
 const defaultTheme = (theme: any): CtCakeSelectorTheme => merge({} as CtCakeSelectorTheme, theme);
@@ -39,7 +40,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
 
   constructor(props) {
     super(props);
-    this.state = { suggestion: [] };
+    this.state = { suggestions: [] };
   }
 
   componentDidMount() {
@@ -57,18 +58,31 @@ class CtCakeSelectorImpl extends React.PureComponent<
       );
   }
 
+  handleSuggestion = (suggest: CakeSuggestion) => {
+    console.log('choose:', suggest);
+    //TODO: action to save suggestion
+  };
+
   render() {
-    const { theme: incomingTheme, ...defaultHostProps } = this.props;
+    const { cakeId, theme: incomingTheme, ...defaultHostProps } = this.props;
+    const { suggestions } = this.state;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, themeToHostStyles(theme));
-    return <div {...hostProps} />;
+    return (
+      <div {...hostProps}>
+        Suggestions:
+        {suggestions.map(suggest => (
+          <span onClick={_ => this.handleSuggestion(suggest)}>{suggest.name}</span>
+        ))}
+      </div>
+    );
   }
 }
 
 const selector = ({ ui }: ICoreState): CtCakeSelectorFromState => ({
   cakeId: ui.nextCake ? ui.nextCake.cakeId : undefined,
 });
-export const CtLanding = connect(
+export const CtCakeSelector = connect(
   selector,
   coreState$
 )<{}, CtCakeSelectorFromState>(withTheme(CtCakeSelectorImpl));
