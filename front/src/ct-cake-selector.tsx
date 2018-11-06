@@ -44,7 +44,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
   }
 
   componentDidMount() {
-    fetch('/my-suggestions')
+    fetch('/api/my-suggestions', { method: 'POST' })
       .then(res => res.json())
       .then(
         res => {
