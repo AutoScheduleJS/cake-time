@@ -4,6 +4,8 @@ import * as React from 'react';
 import { ICoreState } from './core-state/core.state';
 import { coreState$ } from './core-state/core.store';
 import { CtCakeSelector } from './ct-cake-selector';
+import { CtDirections } from './ct-directions';
+import { CtShoppingList } from './ct-shopping-list';
 import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
 
@@ -36,6 +38,7 @@ class CtLandingImpl extends React.PureComponent<CtLandingFromState & CtLandingPr
     const { cakeId, theme: incomingTheme, ...defaultHostProps } = this.props;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, themeToHostStyles(theme));
+    console.log('hostProps Landing', hostProps);
     /**
      * TODO: use MorphWaa to transform cake selector to details (shopping & directions)
      * - no need of MorphWaa: just use the same parent layout ala GDoc and apply an height transition
@@ -43,7 +46,12 @@ class CtLandingImpl extends React.PureComponent<CtLandingFromState & CtLandingPr
     if (!cakeId) {
       return <CtCakeSelector />;
     }
-    return <div {...hostProps}>Directions</div>;
+    return (
+      <div>
+        <CtShoppingList />
+        <CtDirections />
+      </div>
+    );
   }
 }
 
