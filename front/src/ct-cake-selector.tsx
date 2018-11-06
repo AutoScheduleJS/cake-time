@@ -2,9 +2,10 @@ import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
 import { ICoreState } from './core-state/core.state';
-import { coreState$ } from './core-state/core.store';
+import { coreState$, actionTrigger$ } from './core-state/core.store';
 import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
+import { UpdateNextCake } from './core-state/global.ui.reducer';
 
 interface CtCakeSelectorFromState {
   cakeId?: number;
@@ -59,8 +60,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
   }
 
   handleSuggestion = (suggest: CakeSuggestion) => {
-    console.log('choose:', suggest);
-    //TODO: action to save suggestion
+    actionTrigger$.next(new UpdateNextCake(suggest.id));
   };
 
   render() {

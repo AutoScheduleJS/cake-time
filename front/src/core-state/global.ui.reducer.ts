@@ -2,8 +2,9 @@ import { Observable } from 'rxjs';
 import { scan } from 'rxjs/operators';
 import { ICoreState } from './core.state';
 import { actionType } from './core.store';
-import { recipeTabUiReducer$ } from './recipe-tab.ui.reducer';
+import { recipeTabUiReducer$, TabId } from './recipe-tab.ui.reducer';
 import { scrimUiReducer$ } from './scrim.ui.reducer';
+
 export type globalUiActionType = any;
 
 export const globalUiReducer$ = (
@@ -27,5 +28,25 @@ export const globalUiReducer$ = (
 };
 
 const globalReducer = (state: ICoreState, action: actionType): ICoreState | false => {
+  if (action instanceof UpdateNextCake) {
+    return handleUpdateNextCake(state, action);
+  }
   return false;
+};
+
+export class UpdateNextCake {
+  constructor(public nextCakeId: number) {}
+}
+const handleUpdateNextCake = (state: ICoreState, action: UpdateNextCake): ICoreState => {
+  return {
+    ...state,
+    ui: {
+      ...state.ui,
+      nextCake: {
+        ...state.ui.nextCake,
+        cakeId: action.nextCakeId,
+        recipeTab: TabId.ShoppingList,
+      },
+    },
+  };
 };
