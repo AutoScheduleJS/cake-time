@@ -65,7 +65,7 @@ const baseTheme = {
 
 const defaultTheme = (theme: any = baseTheme): TypographyTheme => {
   const base = {
-    typeface: "'Roboto', sans-serif",
+    typeface: "'Dosis', sans-serif",
     weight: 400,
     case: TypographyCase.Sentence,
   };

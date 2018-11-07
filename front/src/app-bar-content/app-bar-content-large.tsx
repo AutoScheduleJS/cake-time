@@ -25,7 +25,6 @@ const defaultTheme = (theme: any): AppBarContentTheme =>
   merge(
     {
       appBar: {
-        totalHeight: '150px',
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.on,
       },

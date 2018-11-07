@@ -21,7 +21,6 @@ const defaultTheme = (theme: any): AppBarTheme =>
   merge(
     {
       appBar: {
-        totalHeight: '150px',
         elevation: 4,
       },
     },

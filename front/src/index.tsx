@@ -16,22 +16,24 @@ const emotionTheme = {
   },
   appBar: {
     backgroundColor: '#FFFDD0',
+    elevation: 0,
+    totalHeight: '150px',
   },
   palette: {
     primary: {
-      main: '#3F51B5',
+      main: '#35C5B4',
       lightVariant: '#757DE8',
       darkVariant: '#002984',
-      on: '#FFFFFF',
+      on: '#613154',
     },
-    secondary: {
-      main: '#81D4FA',
+    secondary: { // Copy of primary
+      main: '#35C5B4',
       lightVariant: '#B6FFFF',
       darkVariant: '#4BA3C7',
-      on: 'black',
+      on: '#613154',
     },
     surface: {
-      main: '#424242',
+      main: '#FFFFFF',
       background: '#FFFDD0',
       on: '#613154',
       highEmphase: 'DD',

@@ -1,7 +1,6 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
-import { CardProps } from './card/card';
 import { ICoreState } from './core-state/core.state';
 import { coreState$ } from './core-state/core.store';
 import { connect } from './util/connect';
@@ -68,11 +67,7 @@ class CtShoppingListImpl extends React.PureComponent<
   render() {
     const { cakeId, forwardedRef, theme: incomingTheme, ...defaultHostProps } = this.props;
     const theme = defaultTheme(incomingTheme);
-    const hostProps = mergeProps(
-      CardProps({ customTheme: theme }),
-      themeToHostStyles(theme),
-      defaultHostProps
-    );
+    const hostProps = mergeProps(themeToHostStyles(theme), defaultHostProps);
     const { items } = this.state;
     return (
       <div {...hostProps} ref={forwardedRef}>
