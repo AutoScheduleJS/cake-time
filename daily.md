@@ -43,3 +43,13 @@
 
 ## Goal for today
 - complete suggestions
+
+# 7 nov 2018
+## #######-----------------------------------------------------
+
+## Done
+- base code for back-end, shoppinglist & directions
+
+## Goal for today
+- improve layout & refactor
+
