@@ -1,11 +1,13 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
+import { CardProps } from './card/card';
 import { ICoreState } from './core-state/core.state';
-import { coreState$, actionTrigger$ } from './core-state/core.store';
+import { actionTrigger$, coreState$ } from './core-state/core.store';
+import { UpdateNextCake } from './core-state/global.ui.reducer';
+import { Dialog } from './modal/dialog';
 import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
-import { UpdateNextCake } from './core-state/global.ui.reducer';
 
 interface CtCakeSelectorFromState {
   cakeId?: number;
@@ -13,6 +15,7 @@ interface CtCakeSelectorFromState {
 
 interface CtCakeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: any;
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
 interface CtCakeSelectorTheme {}
@@ -30,7 +33,9 @@ const defaultTheme = (theme: any): CtCakeSelectorTheme => merge({} as CtCakeSele
 
 const themeToHostStyles = (_: CtCakeSelectorTheme) => {
   return {
-    className: css``,
+    className: css`
+      height: 120px;
+    `,
   };
 };
 
@@ -64,25 +69,34 @@ class CtCakeSelectorImpl extends React.PureComponent<
   };
 
   render() {
-    const { cakeId, theme: incomingTheme, ...defaultHostProps } = this.props;
+    const { style, cakeId, forwardedRef, theme: incomingTheme, ...defaultHostProps } = this.props;
     const { suggestions } = this.state;
     const theme = defaultTheme(incomingTheme);
-    const hostProps = mergeProps(defaultHostProps, themeToHostStyles(theme));
-    return (
-      <div {...hostProps}>
-        Suggestions:
-        {suggestions.map(suggest => (
-          <span onClick={_ => this.handleSuggestion(suggest)}>{suggest.name}</span>
-        ))}
-      </div>
-    );
+    const hostProps = mergeProps(defaultHostProps, CardProps({}), themeToHostStyles(theme));
+    const dialogProps = {
+      actions: [],
+      content: (
+        <div>
+          Suggestions:
+          {suggestions.map(suggest => (
+            <span onClick={_ => this.handleSuggestion(suggest)}>{suggest.name}</span>
+          ))}
+        </div>
+      ),
+      ...defaultHostProps,
+    };
+    return <Dialog style={style} ref={forwardedRef} {...dialogProps} />;
   }
 }
 
 const selector = ({ ui }: ICoreState): CtCakeSelectorFromState => ({
   cakeId: ui.nextCake ? ui.nextCake.cakeId : undefined,
 });
-export const CtCakeSelector = connect(
+const CtCakeSelectorWithAll = connect(
   selector,
   coreState$
 )<{}, CtCakeSelectorFromState>(withTheme(CtCakeSelectorImpl));
+
+export const CtCakeSelector = React.forwardRef<HTMLDivElement, CtCakeSelectorProps>(
+  (props: any, ref) => <CtCakeSelectorWithAll {...props} forwardedRef={ref} />
+);

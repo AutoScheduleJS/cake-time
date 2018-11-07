@@ -4,10 +4,10 @@ import * as React from 'react';
 import { ICoreState } from './core-state/core.state';
 import { coreState$ } from './core-state/core.store';
 import { CtCakeSelector } from './ct-cake-selector';
-import { CtDirections } from './ct-directions';
-import { CtShoppingList } from './ct-shopping-list';
+import { CtRecipe } from './ct-recipe';
 import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
+import { MorphWaa } from './util/morph-waa';
 
 interface CtLandingFromState {
   cakeId?: number;
@@ -23,7 +23,10 @@ const defaultTheme = (theme: any): CtLandingTheme => merge({} as CtLandingTheme,
 
 const themeToHostStyles = (_: CtLandingTheme) => {
   return {
-    className: css``,
+    className: css`
+      display: flex;
+      justify-content: center;
+    `,
   };
 };
 
@@ -38,18 +41,14 @@ class CtLandingImpl extends React.PureComponent<CtLandingFromState & CtLandingPr
     const { cakeId, theme: incomingTheme, ...defaultHostProps } = this.props;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, themeToHostStyles(theme));
-    console.log('hostProps Landing', hostProps);
-    /**
-     * TODO: use MorphWaa to transform cake selector to details (shopping & directions)
-     * - no need of MorphWaa: just use the same parent layout ala GDoc and apply an height transition
-     */
-    if (!cakeId) {
-      return <CtCakeSelector />;
-    }
     return (
-      <div>
-        <CtShoppingList />
-        <CtDirections />
+      <div {...hostProps}>
+        <MorphWaa
+          FromElem={CtCakeSelector}
+          ToElem={CtRecipe}
+          state={cakeId ? 'to' : 'from'}
+          keepFrom={true} //TODO: fix when keepFrom=false
+        />
       </div>
     );
   }

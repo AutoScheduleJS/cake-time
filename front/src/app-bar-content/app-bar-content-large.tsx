@@ -39,7 +39,7 @@ const AppBarContentRootStyles = (theme: AppBarContentTheme) => {
     className: css`
       position: relative;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       height: ${appBar.totalHeight};
       background-color: ${appBar.backgroundColor};
       color: ${appBar.color};
