@@ -21,7 +21,7 @@ const defaultTheme = (theme: any): AppBarTheme =>
   merge(
     {
       appBar: {
-        totalHeight: '56px',
+        totalHeight: '150px',
         elevation: 4,
       },
     },
@@ -46,7 +46,7 @@ class AppBarImpl extends React.PureComponent<AppBarProps> {
     } = this.props;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(
-      ElevationProps(4, theme),
+      ElevationProps(theme.appBar.elevation, theme),
       AppBarRootStyles(theme),
       defaultHostProps
     );

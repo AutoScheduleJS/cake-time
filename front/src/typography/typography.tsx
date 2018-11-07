@@ -69,15 +69,19 @@ const defaultTheme = (theme: any = baseTheme): TypographyTheme => {
     weight: 400,
     case: TypographyCase.Sentence,
   };
+  const title = {
+    ...base,
+    typeface: "'Parisienne', cursive"
+  }
   return merge(
     {
       typography: {
-        H1: { ...base, weight: 300, size: '6rem', LetterSpacing: '-0.09375rem' },
-        H2: { ...base, weight: 300, size: '3.75rem', LetterSpacing: '-0.03125rem' },
-        H3: { ...base, size: '3rem', LetterSpacing: '0rem' },
-        H4: { ...base, size: '2.125rem', LetterSpacing: '0.015625rem' },
-        H5: { ...base, size: '1.5rem', LetterSpacing: '0rem' },
-        H6: { ...base, weight: 500, size: '1.25rem', LetterSpacing: '0.009375rem' },
+        H1: { ...title, weight: 300, size: '6rem', LetterSpacing: '-0.09375rem' },
+        H2: { ...title, weight: 300, size: '3.75rem', LetterSpacing: '-0.03125rem' },
+        H3: { ...title, size: '3rem', LetterSpacing: '0rem' },
+        H4: { ...title, size: '2.125rem', LetterSpacing: '0.015625rem' },
+        H5: { ...title, size: '1.5rem', LetterSpacing: '0rem' },
+        H6: { ...title, weight: 500, size: '1.25rem', LetterSpacing: '0.009375rem' },
         Subtitle1: { ...base, size: '1rem', LetterSpacing: '0.009375rem' },
         Subtitle2: { ...base, weight: 500, size: '0.875rem', LetterSpacing: '0.00625rem' },
         Body1: { ...base, size: '1rem', LetterSpacing: '0.03125rem' },

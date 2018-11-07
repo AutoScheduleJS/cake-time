@@ -25,7 +25,7 @@ const defaultTheme = (theme: any): AppBarContentTheme =>
   merge(
     {
       appBar: {
-        totalHeight: '56px',
+        totalHeight: '150px',
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.on,
       },
@@ -38,6 +38,8 @@ const AppBarContentRootStyles = (theme: AppBarContentTheme) => {
   return {
     className: css`
       position: relative;
+      display: flex;
+      justify-content: space-between;
       height: ${appBar.totalHeight};
       background-color: ${appBar.backgroundColor};
       color: ${appBar.color};
@@ -60,7 +62,7 @@ class AppBarContentLargeImpl extends React.PureComponent<AppBarContentProps> {
     );
     return (
       <div {...hostProps}>
-        <Typography scale={'H6'} baselineBottom={20}>
+        <Typography scale={'H1'}>
           {title}
         </Typography>
       </div>
