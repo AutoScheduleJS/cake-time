@@ -14,6 +14,9 @@ const emotionTheme = {
   dialog: {
     fullscreen: false,
   },
+  appBar: {
+    backgroundColor: '#FFFDD0',
+  },
   palette: {
     primary: {
       main: '#3F51B5',
