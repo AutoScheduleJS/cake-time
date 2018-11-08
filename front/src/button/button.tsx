@@ -51,6 +51,7 @@ const defaultTheme = (theme: any): ButtonTheme =>
           background-color: ${theme.palette.secondary.main};
         `,
         mediumShape: css`
+          color: ${theme.palette.surface.on};
           border: 1px solid ${theme.palette.surface.on};
         `,
         lowShape: css`
@@ -98,8 +99,8 @@ class ButtonImpl extends React.PureComponent<ButtonProps> {
     const elevation = emphaze === ButtonEmphaze.High ? theme.button.elevation : 0;
     const hostProps = mergeProps(
       ElevationProps(elevation, theme),
-      { className: ButtonRootStyles(theme, emphaze) },
       TypographyProps({ scale: 'Button' }),
+      { className: ButtonRootStyles(theme, emphaze) },
       defaultHostProps
     );
     return (

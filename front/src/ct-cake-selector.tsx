@@ -5,9 +5,10 @@ import { CardProps } from './card/card';
 import { ICoreState } from './core-state/core.state';
 import { actionTrigger$, coreState$ } from './core-state/core.store';
 import { UpdateNextCake } from './core-state/global.ui.reducer';
-import { Dialog } from './modal/dialog';
+import { Dialog, DialogProps } from './modal/dialog';
 import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
+import { Button, ButtonEmphaze } from './button/button';
 
 interface CtCakeSelectorFromState {
   cakeId?: number;
@@ -73,11 +74,13 @@ class CtCakeSelectorImpl extends React.PureComponent<
     const { suggestions } = this.state;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, CardProps({}), themeToHostStyles(theme));
-    const dialogProps = {
-      actions: [],
+    const dialogProps: DialogProps = {
+      dialogTitle: 'Your next cake',
+      actions: [
+        <Button emphaze={ButtonEmphaze.Medium} label={'confirm'} />
+      ],
       content: (
         <div>
-          Suggestions:
           {suggestions.map(suggest => (
             <span onClick={_ => this.handleSuggestion(suggest)}>{suggest.name}</span>
           ))}

@@ -69,10 +69,7 @@ const defaultTheme = (theme: any = baseTheme): TypographyTheme => {
     weight: 400,
     case: TypographyCase.Sentence,
   };
-  const title = {
-    ...base,
-    typeface: "'Parisienne', cursive"
-  }
+  const title = { ...base, typeface: "'Pacifico', cursive" };
   return merge(
     {
       typography: {

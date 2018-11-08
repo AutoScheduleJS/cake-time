@@ -26,11 +26,12 @@ const emotionTheme = {
       darkVariant: '#002984',
       on: '#613154',
     },
-    secondary: { // Copy of primary
+    secondary: {
+      // Copy of primary
       main: '#35C5B4',
       lightVariant: '#B6FFFF',
       darkVariant: '#4BA3C7',
-      on: '#613154',
+      on: '#FFFFFF',
     },
     surface: {
       main: '#FFFFFF',
