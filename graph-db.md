@@ -51,9 +51,9 @@ label: instruction
 node: "pate brisee - instruction1"
 prop: id: 4
 link: instruction -> #3
-link: ingredient -> #1 prop: factor: 0.3, arg:x
-link: ingredient -> #2 prop: factor: 0.7, arg:y
-link: ustensil -> #0 prop: size: 'S', arg:z
+link: ingredient -> #1 prop: factor: 0.3, arg:x (x = argument de l'instruction #3)
+link: ingredient -> #2 prop: factor: 0.7, arg:y (y = argument de l'instruction #3)
+link: ustensil -> #0 prop: size: 'S', arg:z (z = argument de l'instruction #3)
 link: next_instruction -> #4
 
 node: "pate brisee"
@@ -66,3 +66,5 @@ link: instruction -> #4 prop: pos:'2'
 - possiblity of referencing a link from property of another link (ingredient from instruction property) ? Could use an intermediate node to link ustensils & ingredients or previous
 - how to handle internal sub recipe ? -> always externalize them, so we end up with a linear path of instructions
 - how to handle multiple choice for ingredient ? intermediate node
+
+## Rules for recipes
