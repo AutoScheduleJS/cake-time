@@ -1,14 +1,13 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
-import { CardProps } from './card/card';
+import { Button, ButtonEmphaze } from './button/button';
 import { ICoreState } from './core-state/core.state';
 import { actionTrigger$, coreState$ } from './core-state/core.store';
 import { UpdateNextCake } from './core-state/global.ui.reducer';
+import { CakeSuggestion, CtSuggestion } from './ct-suggestion';
 import { Dialog, DialogProps } from './modal/dialog';
 import { connect } from './util/connect';
-import { merge, mergeProps } from './util/hoc.util';
-import { Button, ButtonEmphaze } from './button/button';
 
 interface CtCakeSelectorFromState {
   cakeId?: number;
@@ -19,27 +18,15 @@ interface CtCakeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
-interface CtCakeSelectorTheme {}
-
-interface CakeSuggestion {
-  name: string;
-  id: any;
-}
-
 interface CtCakeState {
   suggestions: CakeSuggestion[];
+  selected: CakeSuggestion | undefined;
 }
 
-const defaultTheme = (theme: any): CtCakeSelectorTheme => merge({} as CtCakeSelectorTheme, theme);
-
-const themeToHostStyles = (_: CtCakeSelectorTheme) => {
-  return {
-    className: css`
-      height: 120px;
-    `,
-  };
-};
-
+const suggestionsClassname = css`
+  display: flex;
+  justify-content: space-around;
+`;
 class CtCakeSelectorImpl extends React.PureComponent<
   CtCakeSelectorFromState & CtCakeSelectorProps
 > {
@@ -47,7 +34,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
 
   constructor(props) {
     super(props);
-    this.state = { suggestions: [] };
+    this.state = { suggestions: [], selected: undefined };
   }
 
   componentDidMount() {
@@ -65,25 +52,40 @@ class CtCakeSelectorImpl extends React.PureComponent<
       );
   }
 
-  handleSuggestion = (suggest: CakeSuggestion) => {
-    actionTrigger$.next(new UpdateNextCake(suggest.id));
+  handleNewCakeSelection = (suggest: CakeSuggestion) => {
+    this.setState({ selected: suggest });
+  };
+
+  handleConfirmation = () => {
+    if (!this.state.selected) {
+      return;
+    }
+    actionTrigger$.next(new UpdateNextCake(this.state.selected.id));
   };
 
   render() {
     const { style, cakeId, forwardedRef, theme: incomingTheme, ...defaultHostProps } = this.props;
-    const { suggestions } = this.state;
-    const theme = defaultTheme(incomingTheme);
-    const hostProps = mergeProps(defaultHostProps, CardProps({}), themeToHostStyles(theme));
+    const { suggestions, selected } = this.state;
     const dialogProps: DialogProps = {
       dialogTitle: 'Your next cake',
       actions: [
-        <Button emphaze={ButtonEmphaze.Medium} label={'confirm'} />
+        <Button // TODO: add a disable state - when no cake is selected
+          emphaze={ButtonEmphaze.Medium}
+          label={'confirm'}
+          onClick={this.handleConfirmation}
+        />,
       ],
       content: (
         <div>
-          {suggestions.map(suggest => (
-            <span onClick={_ => this.handleSuggestion(suggest)}>{suggest.name}</span>
-          ))}
+          <div className={suggestionsClassname}>
+            {suggestions.map(suggest => (
+              <CtSuggestion
+                suggestion={suggest}
+                selected={suggest === selected}
+                onClick={_ => this.handleNewCakeSelection(suggest)}
+              />
+            ))}
+          </div>
         </div>
       ),
       ...defaultHostProps,
