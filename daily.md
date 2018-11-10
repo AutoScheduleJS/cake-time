@@ -53,3 +53,25 @@
 ## Goal for today
 - improve layout & refactor
 
+# 9 nov 2018
+## #########---------------------------------------------------
+
+## Done
+- improve suggestion page
+
+## Goal for today
+- improve suggestion:
+  - suggestion representation
+  - select state instead of directly confirm
+  - use confirm to confirm
+
+# 10 nov 2018
+## ##########--------------------------------------------------
+
+## Done
+- setup neo4j
+- improve suggestion
+
+## Goal for today
+- refine schema
+- add recipes in DB
