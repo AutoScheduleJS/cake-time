@@ -68,3 +68,6 @@ link: instruction -> #4 prop: pos:'2'
 - how to handle multiple choice for ingredient ? intermediate node
 
 ## Rules for recipes
+- recipes can use generic product node to describe the property of one ingredient
+- one ingredient has a family node, regrouping similar and variant products, linking to purchasable products or recipe for home-made
+- local information like availability & price, priority in product choice are stored elsewhere
