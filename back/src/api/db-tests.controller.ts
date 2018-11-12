@@ -20,7 +20,7 @@ export const controller = _ => (_req: Request, res: Response, _next) => {
   (sel:Product {code:"sel fin"}),
   (laitOuEau:Generic {match:"milk or water"}),
   (farineTamisee:Subrecipe {code:"farine tamisée"}),
-  (pateBrisee:Subrecipe {code:"pate brisée"}),
+  (pateBrisee:Recipe {code:"pate brisée", quantity:"500"}),
   (pateBriseeDir1:Direction {code:"pate brisée 1)"}),
   (pateBriseeDir2:Direction {code:"pate brisée 2)"}),
   (pateBriseeDir3:Direction {code:"pate brisée 3)"}),
@@ -70,6 +70,7 @@ export const controller = _ => (_req: Request, res: Response, _next) => {
     .then(res => {
         console.log('results:');
         console.log(res);
+        driver.close();
       }, e => {
         console.log(e);
         driver.close();
