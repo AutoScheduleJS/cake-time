@@ -75,3 +75,14 @@
 ## Goal for today
 - refine schema
 - add recipes in DB
+
+# 12 nov 2018
+## ############------------------------------------------------
+
+## Done
+- refine schema
+- add recipe in DB
+
+## Goal for today
+- retrieve recipes from DB
+- improve shopping list
