@@ -86,3 +86,12 @@
 ## Goal for today
 - retrieve recipes from DB
 - improve shopping list
+
+# 13 nov 2018
+## #############-----------------------------------------------
+
+## Done
+- retrieve recipes from DB
+
+## Goal for today
+- improve shopping list
