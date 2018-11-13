@@ -5,7 +5,7 @@ import { merge, mergeProps } from './util/hoc.util';
 
 export interface CakeSuggestion {
   name: string;
-  id: any;
+  code: string;
 }
 
 interface CtSuggestionProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -19,6 +19,9 @@ const emotionTheme = {
     elevation: 0,
     totalHeight: '150px',
   },
+  effectRiple: {
+    color: '#613154',
+  },
   palette: {
     primary: {
       main: '#35C5B4',

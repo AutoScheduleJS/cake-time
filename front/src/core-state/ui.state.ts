@@ -2,7 +2,7 @@ import { TabId } from './recipe-tab.ui.reducer';
 import { ScrimUI } from './scrim.ui.reducer';
 
 export interface NextCakeUI {
-  cakeId: number;
+  cakeId: string;
   recipeTab: TabId;
 }
 

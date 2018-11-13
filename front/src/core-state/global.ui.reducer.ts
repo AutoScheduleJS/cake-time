@@ -35,7 +35,7 @@ const globalReducer = (state: ICoreState, action: actionType): ICoreState | fals
 };
 
 export class UpdateNextCake {
-  constructor(public nextCakeId: number) {}
+  constructor(public nextCakeId: string) {}
 }
 const handleUpdateNextCake = (state: ICoreState, action: UpdateNextCake): ICoreState => {
   return {

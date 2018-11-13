@@ -18,6 +18,7 @@ export const controller = _ => (req: Request, res: Response, _next) => {
         res.json(
           dbRes.records.map(rec => ({
             name: rec.get('name'),
+            code: rec.get('name')
           }))
         );
         driver.close();

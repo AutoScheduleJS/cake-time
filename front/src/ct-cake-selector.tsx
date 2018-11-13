@@ -10,7 +10,7 @@ import { Dialog, DialogProps } from './modal/dialog';
 import { connect } from './util/connect';
 
 interface CtCakeSelectorFromState {
-  cakeId?: number;
+  cakeId?: string;
 }
 
 interface CtCakeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,7 +20,7 @@ interface CtCakeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
 
 interface CtCakeState {
   suggestions: CakeSuggestion[];
-  selected: CakeSuggestion | undefined;
+  selected?: CakeSuggestion;
 }
 
 const suggestionsClassname = css`
@@ -60,7 +60,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
     if (!this.state.selected) {
       return;
     }
-    actionTrigger$.next(new UpdateNextCake(this.state.selected.id));
+    actionTrigger$.next(new UpdateNextCake(this.state.selected.code));
   };
 
   render() {

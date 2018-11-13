@@ -10,7 +10,7 @@ import { merge, mergeProps } from './util/hoc.util';
 import { MorphWaa } from './util/morph-waa';
 
 interface CtLandingFromState {
-  cakeId?: number;
+  cakeId?: string;
 }
 
 interface CtLandingProps extends React.HTMLAttributes<HTMLDivElement> {
