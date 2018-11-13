@@ -71,4 +71,5 @@ link: instruction -> #4 prop: pos:'2'
 - waiting time could be a prop on link between two directions
 - recipes can use generic product node to describe the property of one ingredient
 - one ingredient has a family node, regrouping similar and variant products, linking to purchasable products or recipe for home-made
+- no backward ref, causing issue when requesting paths
 - local information like availability & price, priority in product choice are stored elsewhere
