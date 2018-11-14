@@ -95,3 +95,13 @@
 
 ## Goal for today
 - improve shopping list
+
+# 14 nov 2018
+## ##############----------------------------------------------
+
+## Done
+- struggle to retrieve subgraph
+
+## Goal for today
+- change graph schema
+  - do not use specific node for instructions
