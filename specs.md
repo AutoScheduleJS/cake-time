@@ -40,7 +40,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
     - grid of cakes
     - accessible filters
     - button to create your own cake -> recipe editor
-  - suggested cake are specific (not generic). By default, don't expand buyable subrecipes (so estimated time is the low bound). Let user choose subrecipes that he wants to do himself. If subrecipe contains other subrecipes, place them by-side.
+  - suggested cake are specific (not generic). There is a pre-made list of default choice for subrecipes. When user select a cake, it list all the default choices for this cake. User can then change subrecipe (home-made or merchandise). If subrecipe contains other subrecipes, place them by-side.
   - have a list of participant: cooker and eater
     - participant doesn't need the app to vote. Only a valid email or name (if no email, participant will vote on the owner device).
     - option to allow them to vote (display percentage of confidence)
@@ -82,6 +82,9 @@ We want the pastry to be accessible, fun to cook with your friends and without h
 - Recipe editor
   - can use base recipe to customize them
   - could be shared & approved by other users
+- Subrecipes Default Settings
+  - list all subrecipes choice (eg: 4 recipes for "pate brisée")
+  - control with cursor: sugar, rich, time & filters: oven, blender
 
 # Recipe System
 
