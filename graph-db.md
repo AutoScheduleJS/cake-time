@@ -85,6 +85,7 @@ link: instruction -> #4 prop: pos:'2'
     - cons: UX have to design feature "change subrecipe" more accessible - could be visible at selection choice
     - keep a property 'merchandise' or 'home-made'
   - default choice come from user-land. It could be choosen by user, and the default choice could be made from original country (different culture -> different product)
+  - do not store real products info. Have a generic node per kind of merchandise
 - when searching, should first retrieve a subgraph after applying defaultOptions, then filter, then get 3 random
   - use custom procedure?
 
@@ -99,7 +100,6 @@ link: instruction -> #4 prop: pos:'2'
     - restTime
     - bakeTime
     - cost // same as time - approximation of the cost per g (computed from ingredient cost & factor)
-    - baseQuantity // quantity for one person
     - directions: ["json_of_direction"]
 - :Product // Familly node for subrecipes or merchandise
   - relationships
