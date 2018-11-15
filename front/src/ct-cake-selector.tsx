@@ -54,6 +54,23 @@ class CtCakeSelectorImpl extends React.PureComponent<
 
   handleNewCakeSelection = (suggest: CakeSuggestion) => {
     this.setState({ selected: suggest });
+    fetch('/api/recipe-info', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ code: suggest.code }),
+    })
+      .then(res => res.json())
+      .then(
+        res => {
+          console.log('response !', res);
+        },
+        err => {
+          console.error('Error while fetching recipe info', err);
+        }
+      );
   };
 
   handleConfirmation = () => {
