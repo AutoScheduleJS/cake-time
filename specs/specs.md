@@ -43,6 +43,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
   - suggested cake are specific (not generic). There is a pre-made list of default choice for subrecipes. When user select a cake, it list all the default choices for this cake. User can then change subrecipe (home-made or merchandise). If subrecipe contains other subrecipes, place them by-side. Only cooker can vote this
   - have a list of participant: cooker and eater
     - participant doesn't need the app to vote. Only a valid email or name (if no email, participant will vote on the owner device).
+    - generic "guest" input number. One wouldn't want to enumerate all identities.
     - option to allow them to vote (display percentage of confidence)
       - for each round: eater can vote for one they want to eat and one they don't want (explaining why: taste/allergia or not this time)
       - if no consensus can be found, we go for another round. Can suggest to bake another cake to cover the taste range.
