@@ -105,3 +105,23 @@
 ## Goal for today
 - change graph schema
   - do not use specific node for instructions
+
+# 15 nov 2018
+## ###############---------------------------------------------
+
+## Done
+- better/simpler schema
+
+## Goal for today
+- retrieve recipe requirements
+
+# 16 nov 2018
+## ################--------------------------------------------
+
+## Done
+- retrieve recipe requirements
+
+## Goal for today
+- improve specs about cake selection
+- display choice for subrecipe to users
+- construct and save recipe infos on user's browser
