@@ -12,7 +12,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
 
 - Onboarding
   - present how the app work
-    - Pick the date and vote the cake with your friends
+    - Pick the date and choose the cake with your friends
     - Find the best products
     - When it's time, cook the cake
   - sign in with Google/FB/Twitter or email (optional)
@@ -40,14 +40,12 @@ We want the pastry to be accessible, fun to cook with your friends and without h
     - grid of cakes
     - accessible filters
     - button to create your own cake -> recipe editor
-  - suggested cake are specific (not generic). There is a pre-made list of default choice for subrecipes. When user select a cake, it list all the default choices for this cake. User can then change subrecipe (home-made or merchandise). If subrecipe contains other subrecipes, place them by-side. Only cooker can vote this
+  - suggested cake are specific (not generic). There is a pre-made list of default choice for subrecipes. When user select a cake, it list all the default choices for this cake. User can then change subrecipe (home-made or merchandise). If subrecipe contains other subrecipes, place them by-side.
   - have a list of participant: cooker and eater
-    - participant doesn't need the app to vote. Only a valid email or name (if no email, participant will vote on the owner device).
-    - generic "guest" input number. One wouldn't want to enumerate all identities.
-    - option to allow them to vote (display percentage of confidence)
-      - for each round: eater can vote for one they want to eat and one they don't want (explaining why: taste/allergia or not this time)
-      - if no consensus can be found, we go for another round. Can suggest to bake another cake to cover the taste range.
-      - tastes are saved for next time
+    - participant doesn't need the app to give their tastes
+    - generic "guest" input number. One wouldn't want to enumerate all identities
+    - share a link to friends to ask them about their tastes
+    - don't allow participants to vote: some will be disappointed, and it may be below their expectation. Let surprise them!
 - Allow user to force suggestion
 - After suggestion, for compatible cake, suggest decoration and dressing (for cooker only)
   - same way of working than for cake suggestion
@@ -57,9 +55,10 @@ We want the pastry to be accessible, fun to cook with your friends and without h
 - After suggestion: let user confirm the confection time (with eventually upward preparation, and rest time), to be ready for tea time (default, could be changed)
 - After confirming time: Dialog: You can review the shopping list and instructions or leave the app - you will be notified when it's Cake Time!
 - After confirming time or when launching the app: shopping list for the next event,
-  - user can still access options to edit participants
-  - user can ask additional "slice" to the cake (default match eaters)
-  - when it makes sense, user can choose the size of one slice
+  - user can still modify quantities
+    - user can match quantities with specific pan size
+    - user can ask additional "slice" to the cake (default match eaters)
+    - when it makes sense, user can choose the size of one slice
   - user can cross items already owned (=> user has at least the quantity required. If slice are added the item is uncrossed ; displaying only the difference could be confusing).
   - allow user to indicate that he already own a product of one sub-recipe (eg: the dough. Could be done elsewhere): this will remove from the shopping list items from this sub-recipe + remove the instructions of this sub-recipe.
   - user can long press to set the quantity owned (slider from 0 to +20% required)
@@ -103,4 +102,5 @@ How ?
 
 # Design
 
-Imagery of Alice in the wonderland
+- Imagery of Alice in the wonderland
+- Design like Mario Party
