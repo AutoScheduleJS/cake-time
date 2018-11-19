@@ -125,3 +125,16 @@
 - improve specs about cake selection
 - display choice for subrecipe to users
 - construct and save recipe infos on user's browser
+
+# 19 nov 2018
+## ###################-----------------------------------------
+
+## Done
+- improve specs about cake selection
+  - participants
+  - deadlines
+  - global workflow
+
+## Goal for today
+- display choice for subrecipe to users
+- construct and save recipe infos on user's browser
