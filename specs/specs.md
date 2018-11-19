@@ -1,6 +1,7 @@
 # Plot
 
 Cooking and eating cake is cool. But it requires organisation:
+
 - You may have not have all the necessary ingredients
 - It may requires more time than you thought or it needs upward preparation
 - You have no idea of which cake you want, which everyone enjoy
@@ -16,6 +17,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
     - Find the best products
     - When it's time, cook the cake
   - sign in with Google/FB/Twitter or email (optional)
+  - creation of profiles - Me & people who will likely eat my cakes
   - creation of the first filter - The cakes I like
 - Suggest user 3 differents cake to be cooked for the next week-end
   - Confirm the date: date should have a slight influance on suggestion (confection time)
@@ -91,11 +93,13 @@ We want the pastry to be accessible, fun to cook with your friends and without h
 Try to create generic recipes. But suggest specific cake.
 
 Why ?
+
 - Easy to customize cake, or to create a new cake using base recipe
 - Easier to manage when recipes use base recipe (factorisation)
 - Easier to filter
 
 How ?
+
 - fractale organisation ? With a graph of dependency for tasks, it could detect a new sub-recipe at each merging point
 - sub-recipe are saved once, with variables over actual quantities
 - quantities that must remain proportional have to be bound. Other could vary (eg: till 20%)
