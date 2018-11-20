@@ -1,6 +1,6 @@
 How to present progress through selection?
 
-## Epic: Cake Selection
+## Epic: Cake Selection - Suggest me some cakes
 
 1. confirm participants
 2. confirm cake time (deadlines)
@@ -34,3 +34,4 @@ User will want to access all the feature of profile creation, especially tastes.
 Profile added can be easily edited.
 
 To better suggest cake, user has to inform when cake has to be ready. Default to next saturday.
+User is informed of day left.

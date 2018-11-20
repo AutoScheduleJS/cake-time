@@ -19,6 +19,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
   - sign in with Google/FB/Twitter or email (optional)
   - creation of profiles - Me & people who will likely eat my cakes
   - creation of the first filter - The cakes I like
+- cake selection: user choose between "Suggest me some cakes" & "I want THIS cake!"
 - Suggest user 3 differents cake to be cooked for the next week-end
   - Confirm the date: date should have a slight influance on suggestion (confection time)
   - How to make relevant suggestion ?
@@ -53,7 +54,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
   - same way of working than for cake suggestion
   - should follow basic rule of taste/color harmony
   - suggestion that are never choose (globally) have less chance to appear with this cake
-- After suggestion: let user confirm that he owns the required equipement (only first time seen).
+- After suggestion: let user confirm that he owns the required equipement (only first time seen). --> Or do it on onboarding
 - After suggestion: let user confirm the confection time (with eventually upward preparation, and rest time), to be ready for tea time (default, could be changed)
 - After confirming time: Dialog: You can review the shopping list and instructions or leave the app - you will be notified when it's Cake Time!
 - After confirming time or when launching the app: shopping list for the next event,
