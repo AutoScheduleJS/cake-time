@@ -28,10 +28,60 @@ groups:
 
 Goal: setup context: who will participate and when ?
 
-User choose who will eat by adding profile or by giving the number of guest.
-If the profile is not known by the app, it let the user create a new profile.
-User will want to access all the feature of profile creation, especially tastes.
-Profile added can be easily edited.
+User choose who will eat by adding profile or by giving the number of guest. If the profile is not
+known by the app, it let the user create a new profile. User will want to access all the feature of
+profile creation, especially tastes. Profile added can be easily edited.
 
-To better suggest cake, user has to inform when cake has to be ready. Default to next saturday.
-User is informed of day left.
+To better suggest cake, user has to inform when cake has to be ready. Default to next saturday. User
+is informed of day left.
+
+### Cake Choice
+
+Goal: Help user to quickly select a recipe that is likely to be enjoyed by everyone.
+
+User will want to restrict possibilities to match his needs. User will want to keep these rules of
+restrictions saved so he can reuse them without specifying them again.
+
+When seeing a cake that he or one of the participant doesn't like, user will want to refine
+profile's tastes. User might want additional information about suggested cake, like: more photos,
+descriptions If user leaves the app as is, he will want to retrieve it when he'll go back.
+
+User would want to be informed about participant satisfaction and might decide to do one or two cakes to cover a larger satisfaction.
+
+### Plus Extra
+
+Goal: help user to quickly select topping or dressing for this cake.
+
+Each cake can suggest his own dressing. User will want to view available dressing for this kind of
+cake. Additionally, sides can be suggested for this kind of cake. User might want to choose many of
+them, or none.
+
+### Last Options
+
+Goal: Allow user to customize the recipe, by changing subrecipes
+
+User will want to change subrecipes with his own. User might want appropriate information about
+subrecipes, like time & ustensil required + comparison of composition with average
+
+User might want to review total time used
+
+## Epic: Cake Selection - I want THIS cake!
+
+1. choose filters
+2. select one or multiples cakes
+3. add topping/dressing
+4. confirm subrecipes
+
+1) likely to changer after viewing suggestions - to adjust them
+2) depends on 2)
+3) depends on 3)
+
+groups:
+
+- [1, 2] -> cake choice
+- [3] -> plus extra
+- [4] -> last options
+
+### Cake Choice
+
+User access the filter creation component:
