@@ -16,3 +16,7 @@ It should inform the quantity of recipes filtered out / remaining.
 rules are:
 - must belongs to _category_
 -
+
+## Plan a new cake!
+
+link to cake-selector
