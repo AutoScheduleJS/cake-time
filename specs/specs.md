@@ -28,17 +28,17 @@ We want the pastry to be accessible, fun to cook with your friends and without h
   - One image per cake with a short description, naming the main ingredients
     - description could be generated from ingredient list and a list of random adjectives
     - photos could be fetched from social media, from specific tags/mention - the one with the most star would be used.
-  - get the suggestion from a live collection of recipes that can be filtered (exclude/include)
-    - by ingredients
-    - by only easy-to-find ingredients
+  - get the suggestion from a live collection of recipes that can be filtered (WITH (intersection)/WITHOUT(union))
+    - by ingredients (dropdown list with autocomplete)
+    - by only easy-to-find ingredients (category: difficulty)
     - by cost
-    - by confection time / rest time / bake time
-    - by kind (pie, frozen cream, cake, pastry, individual cake)
-    - by original country
-    - by visual appealing
-    - by confidence of enjoyement
-    - by texture (crunchy, soft, creamy, frothy)
-    - by utensil / equipement (oven, cooler, siphon)
+    - by occasion (christmas, thanksgiving, halloween, etc...) (category)
+    - by confection time / rest time / bake time (category: difficulty)
+    - by kind (pie, frozen cream, cake, pastry, individual cake) (category)
+    - by original country / province / area (eg: East Asia, Latina) (dropdown list with autocomplete)
+    - by confidence of enjoyement: Adventurous (exploration, masochistic, enjoy!) (category)
+    - by texture (crunchy, soft, creamy, frothy) (category)
+    - by utensil / equipement (oven, cooler, siphon) (category)
   - choose button (ignore the suggestions)
     - grid of cakes
     - accessible filters

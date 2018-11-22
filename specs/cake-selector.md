@@ -84,4 +84,15 @@ groups:
 
 ### Cake Choice
 
-User access the filter creation component:
+Categories are displayed:
+- Recipe of the Week
+- Trending
+- Popular pie
+- Popular cake
+- Popular dessert
+- Last added
+
+Popular categories are dynamic: from popular recipes, regroup them. Display group within threshold of items.
+Search Bar used to add filters -> same behavior as Tasty : suggest pre-made filters organized by category + let user filter on ingredients or recipe name
+On desktop: having a side panel with all filters displayed and with same behavior as chip - with two states enabled/disabled + dropdown of current filter name with a save button. When modifying current filter, it switch the current filter to _current filter name - modified_, and a save button appear. When user click the save button, it opens a popup to change the name. If the name replace an existing filter's name, the confirm button label change from "save" to "overwrite"
+On thin screen, it could be a top panel with only enabled filters, two columns (with/without), and an ADD button to pop up a complete filter screen. When scrolling, the top bar could disappear and  reappear apon scroll up.
