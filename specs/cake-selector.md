@@ -92,7 +92,19 @@ Categories are displayed:
 - Popular dessert
 - Last added
 
-Popular categories are dynamic: from popular recipes, regroup them. Display group within threshold of items.
-Search Bar used to add filters -> same behavior as Tasty : suggest pre-made filters organized by category + let user filter on ingredients or recipe name
+Popular categories are dynamic: Recent from friends; from popular recipes, regroup them (pie, frozen,...). Display group within threshold of items.
+Search Bar used to add filters -> same behavior as Tasty : suggest pre-made filters organized by category + let user filter on ingredients or geographic area
 On desktop: having a side panel with all filters displayed and with same behavior as chip - with two states enabled/disabled + dropdown of current filter name with a save button. When modifying current filter, it switch the current filter to _current filter name - modified_, and a save button appear. When user click the save button, it opens a popup to change the name. If the name replace an existing filter's name, the confirm button label change from "save" to "overwrite"
-On thin screen, it could be a top panel with only enabled filters, two columns (with/without), and an ADD button to pop up a complete filter screen. When scrolling, the top bar could disappear and  reappear apon scroll up.
+On thin screen, it could be a top panel with only enabled filters, two columns (with/without), and an ADD button to pop up a complete filter screen. When scrolling, the top bar could disappear and reappear apon scroll up.
+
+Cake info: when user tap on a cake suggestion, what are information that must be given ?
+- ingredients ? Subrecipes + ingredients
+- ustensils ? Should be filtered one time for all
+- photos ? from social network
+- instructions ? why ? Too early & depends on subrecipe choice
+- available extra ? Yeah
+- subrecipes ? Has to wait extra -> does subrecipes
+Instead of tapping a cake to higlight it and then confirm, it could be a new page with all info related, with a back & choose button
+
+How to handle subrecipe already prepared ?
+
