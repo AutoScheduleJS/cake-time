@@ -11,18 +11,21 @@ How to present progress through selection?
 
 1) is a one time setup: it will unlikely change after first setup. 4) depends on 1)
 2) same as 1)
-3) likely to changer after viewing suggestions - to adjust them
+3) likely to changer after viewing suggestions - to adjust them -> using filter can prevent system to recommand relevant cake considering all participant's tastes. Better to only filter on event
+3') user can filter on difficulty & price
 4) depends on 4)
 5) depends on 5)
 
 groups:
 
-- [1, 2] -> suggestion setup
-- [3, 4] -> cake choice
+- [1, 2, 3] -> suggestion setup
+- [4] -> cake choice
 - [5] -> plus extra
 - [6] -> last options
 
 ## Stories
+
+Cake selection occurs on one card, with each step completed collapsed, leaving only a summary. Works like expansion panel.
 
 ### Suggestion Setup
 
@@ -35,6 +38,10 @@ profile creation, especially tastes. Profile added can be easily edited.
 To better suggest cake, user has to inform when cake has to be ready. Default to next saturday. User
 is informed of day left.
 
+Choose event 'none' or specific -> tag system; like Steam store page
+
+After this step is completed, participante remains visible through the whole process so user can easily edit their profile (to change tastes)
+
 ### Cake Choice
 
 Goal: Help user to quickly select a recipe that is likely to be enjoyed by everyone.
@@ -44,9 +51,7 @@ restrictions saved so he can reuse them without specifying them again.
 
 When seeing a cake that he or one of the participant doesn't like, user will want to refine
 profile's tastes. User might want additional information about suggested cake, like: more photos,
-descriptions If user leaves the app as is, he will want to retrieve it when he'll go back.
-
-User would want to be informed about participant satisfaction and might decide to do one or two cakes to cover a larger satisfaction.
+descriptions. If user leaves the app as is, he will want to retrieve it when he'll go back.
 
 ### Plus Extra
 
@@ -104,7 +109,7 @@ Cake info: when user tap on a cake suggestion, what are information that must be
 - instructions ? why ? Too early & depends on subrecipe choice
 - available extra ? Yeah
 - subrecipes ? Has to wait extra -> does subrecipes
-Instead of tapping a cake to higlight it and then confirm, it could be a new page with all info related, with a back & choose button
+Instead of tapping a cake to higlight it and then confirm, it could be a new page with all info related, with a back & choose button.
+On cake page, a "I love it" & "I don't like it" buttons could shortcut profil's taste edition.
 
-How to handle subrecipe already prepared ?
-
+How to handle subrecipe already prepared ? Add an entry "ready to use [subrecipe name]" to the dropdown: it will not appear to shopping list nor instructions.
