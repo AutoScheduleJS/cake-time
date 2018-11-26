@@ -28,7 +28,7 @@ We want the pastry to be accessible, fun to cook with your friends and without h
   - One image per cake with a short description, naming the main ingredients
     - description could be generated from ingredient list and a list of random adjectives
     - photos could be fetched from social media, from specific tags/mention - the one with the most star would be used.
-  - get the suggestion from a live collection of recipes that can be filtered (WITH (intersection)/WITHOUT(union))
+  - get the suggestion from a live collection of recipes that can be filtered. Don't use With or Without, rather, order by relevance
     - by ingredients (dropdown list with autocomplete)
     - by only easy-to-find ingredients (category: difficulty)
     - by cost
