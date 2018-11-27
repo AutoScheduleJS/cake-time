@@ -38,16 +38,17 @@ profile creation, especially tastes. Profile added can be easily edited.
 To better suggest cake, user has to inform when cake has to be ready. Default to next saturday. User
 is informed of day left.
 
-Choose event 'none' or specific -> tag system; like Steam store page
+Choose event 'none' or specific -> tag system; like Steam store page. How to handle difference of event with culture?
+eg: UK & Korea haven't the same culinary requirements for Christmas.
+Handle these difference in the same way than local info like price & ingredients availability.
+How to handle when the event is not yet created, or the user want to add some modifications to the rules?
+Same way to create new profile for participant
 
 After this step is completed, participante remains visible through the whole process so user can easily edit their profile (to change tastes)
 
 ### Cake Choice
 
 Goal: Help user to quickly select a recipe that is likely to be enjoyed by everyone.
-
-User will want to restrict possibilities to match his needs. User will want to keep these rules of
-restrictions saved so he can reuse them without specifying them again.
 
 When seeing a cake that he or one of the participant doesn't like, user will want to refine
 profile's tastes. User might want additional information about suggested cake, like: more photos,
@@ -70,7 +71,9 @@ subrecipes, like time & ustensil required + comparison of composition with avera
 
 User might want to review total time used
 
-## Epic: Cake Selection - I want THIS cake!
+## Epic: Cake Selection - Let me choose
+
+"I want THIS cake" title imply that we already know what we want. But as we let the user browse the whole recipes base, it may be better to name it "Let me choose". This suit the intention of choosing the recipe we had before browsing, and the intention to explore.
 
 1. choose filters
 2. select one or multiples cakes
@@ -97,7 +100,7 @@ Categories are displayed:
 - Popular dessert
 - Last added
 
-Popular categories are dynamic: Recent from friends; from popular recipes, regroup them (pie, frozen,...). Display group within threshold of items.
+Popular categories are dynamic: Popular in [user's town]; Recent from friends; Recommandation; from popular recipes, regroup them (pie, frozen,...). Display group within threshold of items.
 Search Bar used to add filters -> same behavior as Tasty : suggest pre-made filters organized by category + let user filter on ingredients or geographic area
 On desktop: having a side panel with all filters displayed and with same behavior as chip - with two states enabled/disabled + dropdown of current filter name with a save button. When modifying current filter, it switch the current filter to _current filter name - modified_, and a save button appear. When user click the save button, it opens a popup to change the name. If the name replace an existing filter's name, the confirm button label change from "save" to "overwrite"
 On thin screen, it could be a top panel with only enabled filters, an ADD button to pop up a complete filter screen. When scrolling, the top bar could disappear and reappear apon scroll up.

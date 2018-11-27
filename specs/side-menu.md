@@ -12,6 +12,7 @@ User could send a link to friends so they can directly edit their profile.
 ## Filter Creation
 
 User will want to save filter rules for recipes and name them.
+Filter creation have to be saved as "Event" (thanksgiving, christmas,...)
 It should inform the quantity of recipes filtered out / remaining.
 rules are:
 - must belongs to _category_
