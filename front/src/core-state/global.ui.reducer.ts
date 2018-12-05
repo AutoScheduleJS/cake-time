@@ -4,6 +4,7 @@ import { ICoreState } from './core.state';
 import { actionType } from './core.store';
 import { recipeTabUiReducer$, TabId } from './recipe-tab.ui.reducer';
 import { scrimUiReducer$ } from './scrim.ui.reducer';
+import { RecipeCreation } from './ui.state';
 
 export type globalUiActionType = any;
 
@@ -31,8 +32,24 @@ const globalReducer = (state: ICoreState, action: actionType): ICoreState | fals
   if (action instanceof UpdateNextCake) {
     return handleUpdateNextCake(state, action);
   }
+  if (action instanceof UpdateRecipeCreation) {
+    return handleUpdateRecipeCreation(state, action);
+  }
   return false;
 };
+
+export class UpdateRecipeCreation {
+  constructor(public recipeCreation: RecipeCreation) {}
+}
+const handleUpdateRecipeCreation = (state: ICoreState, action: UpdateRecipeCreation): ICoreState => {
+  return {
+    ...state,
+    ui: {
+      ...state.ui,
+      recipeCreation: action.recipeCreation
+    }
+  }
+}
 
 export class UpdateNextCake {
   constructor(public nextCakeId: string) {}

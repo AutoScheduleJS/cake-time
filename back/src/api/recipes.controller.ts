@@ -10,10 +10,7 @@ export const controller = _ => (req: Request, res: Response, _next) => {
   session
     .run(
       `MATCH (r:Recipe)
-  WITH r, rand() AS nb
-  RETURN r.code as name
-  ORDER BY nb
-  LIMIT 3`
+  RETURN r.code as name`
     )
     .then(
       dbRes => {

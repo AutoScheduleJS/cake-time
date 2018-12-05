@@ -6,7 +6,12 @@ export interface NextCakeUI {
   recipeTab: TabId;
 }
 
+export interface RecipeCreation {
+
+}
+
 export interface UIState {
   nextCake?: NextCakeUI;
+  recipeCreation?: RecipeCreation;
   scrim: ScrimUI;
 }

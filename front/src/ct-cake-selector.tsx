@@ -4,8 +4,9 @@ import * as React from 'react';
 import { Button, ButtonEmphaze } from './button/button';
 import { ICoreState } from './core-state/core.state';
 import { actionTrigger$, coreState$ } from './core-state/core.store';
-import { UpdateNextCake } from './core-state/global.ui.reducer';
+import { UpdateNextCake, UpdateRecipeCreation } from './core-state/global.ui.reducer';
 import { CakeSuggestion, CtSuggestion } from './ct-suggestion';
+import { Fab } from './fab/fab';
 import { Dialog, DialogProps } from './modal/dialog';
 import { connect } from './util/connect';
 
@@ -38,7 +39,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
   }
 
   componentDidMount() {
-    fetch('/api/my-suggestions', { method: 'POST' })
+    fetch('/api/recipes', { method: 'POST' })
       .then(res => res.json())
       .then(
         res => {
@@ -80,6 +81,10 @@ class CtCakeSelectorImpl extends React.PureComponent<
     actionTrigger$.next(new UpdateNextCake(this.state.selected.code));
   };
 
+  handleRecipeCreationRequest = () => {
+    actionTrigger$.next(new UpdateRecipeCreation({}));
+  };
+
   render() {
     const { style, cakeId, forwardedRef, theme: incomingTheme, ...defaultHostProps } = this.props;
     const { suggestions, selected } = this.state;
@@ -103,6 +108,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
               />
             ))}
           </div>
+          <Fab onClick={this.handleRecipeCreationRequest} />
         </div>
       ),
       ...defaultHostProps,
