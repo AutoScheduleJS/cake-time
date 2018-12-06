@@ -37,7 +37,10 @@ class CtRecipeCreationImpl extends React.PureComponent<CtRecipeCreationProps> {
     const { creation, theme: incomingTheme, ...defaultHostProps } = this.props;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, computeHostStyles(theme));
-    return <div {...hostProps}>test</div>;
+    return (
+      <div {...hostProps}>
+      </div>
+    );
   }
 }
 
