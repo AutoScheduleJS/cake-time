@@ -1,14 +1,18 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
-import { mergeProps } from './util/hoc.util';
-import { Typography } from './typography/typography';
-import { TextInput } from './text-input/text-input';
+import { Button, ButtonEmphaze } from './button/button';
 import { CtProductSelector } from './ct-product-selector';
+import { TextInput } from './text-input/text-input';
+import { Typography } from './typography/typography';
+import { mergeProps } from './util/hoc.util';
+import { Dialog } from './modal/dialog';
 
-interface CtProductCreationProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CtProductCreationProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: any;
+  forwardedRef?: React.Ref<HTMLDivElement>;
   onNewProduct: (product: any) => void;
+  onCancel: () => void;
 }
 
 const computeHostStyles = {
@@ -65,19 +69,38 @@ class CtProductCreationImpl extends React.PureComponent<CtProductCreationProps> 
     };
   };
 
+  handleCreation = () => {
+    this.props.onNewProduct({
+      ...this.state.newProduct,
+    });
+  };
+
   render() {
-    const { theme, ...defaultHostProps } = this.props;
+    const { style, forwardedRef, theme, ...defaultHostProps } = this.props;
     const hostProps = mergeProps(defaultHostProps, computeHostStyles);
     const { newProduct } = this.state;
-    return (
-      <div {...hostProps}>
+    const content = (
+      <div>
         <Typography scale="H3">Product information</Typography>
         <TextInput label={name} value={newProduct.name || ''} onNewVal={this.handleNewName} />
-        <CtProductSelector title={'Belongs to'} />
-        <CtProductSelector title={'Children'} />
+        <CtProductSelector title={'Belongs to'} {...this.handleProductSelector('belongs')} />
+        <CtProductSelector title={'Children'} {...this.handleProductSelector('children')} />
       </div>
     );
+    const dialogProps = {
+      actions: [
+        <Button emphaze={ButtonEmphaze.High} label={'Create'} onClick={this.handleCreation} />,
+      ],
+      content,
+      onCancel: this.props.onCancel,
+      hostProps,
+    };
+    return <Dialog style={style} ref={forwardedRef} {...dialogProps} scrim={true} />;
   }
 }
 
-export const CtProductCreation = withTheme(CtProductCreationImpl);
+const CtProductCreationWithTheme = withTheme(CtProductCreationImpl);
+
+export const CtProductCreation = React.forwardRef<HTMLDivElement, CtProductCreationProps>(
+  (props: any, ref) => <CtProductCreationWithTheme {...props} forwardedRef={ref} />
+);
