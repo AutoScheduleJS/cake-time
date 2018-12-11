@@ -8,10 +8,10 @@ import { Typography } from './typography/typography';
 import { mergeProps } from './util/hoc.util';
 import { Dialog } from './modal/dialog';
 
-export interface CtProductCreationProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CtProductCreationProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: any;
   forwardedRef?: React.Ref<HTMLDivElement>;
-  onNewProduct: (product: any) => void;
+  onAdded: (product: any) => void;
   onCancel: () => void;
 }
 
@@ -70,7 +70,7 @@ class CtProductCreationImpl extends React.PureComponent<CtProductCreationProps> 
   };
 
   handleCreation = () => {
-    this.props.onNewProduct({
+    this.props.onAdded({
       ...this.state.newProduct,
     });
   };

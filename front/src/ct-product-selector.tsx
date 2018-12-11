@@ -1,12 +1,13 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
-import { merge, mergeProps } from './util/hoc.util';
-import { Typography } from './typography/typography';
-import { TextInput } from './text-input/text-input';
-import { LayoutMasonry } from './layout-masonry/layout-masonry';
+import { CtAddFromBtn } from './ct-add-from-btn';
 import { CtProduct } from './ct-product';
-import { CtNewProduct } from './ct-new-product';
+import { CtProductCreation } from './ct-product-creation';
+import { LayoutMasonry } from './layout-masonry/layout-masonry';
+import { TextInput } from './text-input/text-input';
+import { Typography } from './typography/typography';
+import { merge, mergeProps } from './util/hoc.util';
 
 interface CtProductSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   onAddedSelection: (added: any) => void;
@@ -80,7 +81,11 @@ class CtProductSelectorImpl extends React.PureComponent<CtProductSelectorProps> 
         <LayoutMasonry itemWidth={theme.productSelector.itemWidth}>
           {[
             ...result.map(mapProduct(onAddedSelection)),
-            <CtNewProduct onNewProduct={onAddedSelection} />,
+            <CtAddFromBtn
+              btnLabel={'New product'}
+              onAdded={onAddedSelection}
+              toElem={CtProductCreation}
+            />,
           ]}
         </LayoutMasonry>
       </div>

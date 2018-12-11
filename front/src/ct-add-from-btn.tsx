@@ -1,49 +1,50 @@
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import * as React from 'react';
-import { mergeProps } from './util/hoc.util';
 import { Button, ButtonEmphaze } from './button/button';
+import { mergeProps } from './util/hoc.util';
 import { MorphWaa } from './util/morph-waa';
-import { CtProductCreation, CtProductCreationProps } from './ct-product-creation';
 
-interface CtNewProductProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CtAddFromBtnProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: any;
-  onNewProduct: (product: any) => void;
+  btnLabel: string;
+  onAdded: (product: any) => void;
+  toElem: React.ComponentType<any>;
 }
 
 const computeHostStyles = {
   className: css``,
 };
 
-interface CtNewProductState {
+interface CtAddFromBtnState {
   isCreating: boolean;
 }
 
-class CtNewProductImpl extends React.PureComponent<CtNewProductProps> {
-  state: CtNewProductState;
+class CtAddFromBtnImpl extends React.PureComponent<CtAddFromBtnProps> {
+  state: CtAddFromBtnState;
   constructor(props) {
     super(props);
     this.state = { isCreating: false };
   }
 
   render() {
-    const { theme, ...defaultHostProps } = this.props;
+    const { theme, btnLabel, toElem, ...defaultHostProps } = this.props;
     const hostProps = mergeProps(defaultHostProps, computeHostStyles);
     const fromProps = {
-      label: 'New product',
+      label: btnLabel,
       emphaze: ButtonEmphaze.Medium,
       onClick: () => {
         this.setState({ isCreating: true });
       },
     };
-    const toProps: CtProductCreationProps = {
-      onNewProduct: this.props.onNewProduct,
-      onCancel: () => this.setState({ isCreating: false })
+    const toProps = {
+      onAdded: this.props.onAdded,
+      onCancel: () => this.setState({ isCreating: false }),
     };
     return (
       <MorphWaa
         FromElem={Button}
-        ToElem={CtProductCreation}
+        ToElem={toElem}
         state={this.state.isCreating ? 'from' : 'to'}
         keepFrom={true}
         fromProps={fromProps}
@@ -54,4 +55,4 @@ class CtNewProductImpl extends React.PureComponent<CtNewProductProps> {
   }
 }
 
-export const CtNewProduct = withTheme(CtNewProductImpl);
+export const CtAddFromBtn = withTheme(CtAddFromBtnImpl);
