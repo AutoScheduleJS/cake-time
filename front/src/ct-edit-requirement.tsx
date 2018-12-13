@@ -7,38 +7,39 @@ import { Dialog } from './modal/dialog';
 import { Button, ButtonEmphaze } from './button/button';
 import { TextInput } from './text-input/text-input';
 
-interface CtAddRequirementProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CtEditRequirementProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: any;
   product?: any;
+  forwardedRef?: React.Ref<HTMLDivElement>;
   onAdded: (product: any) => void;
   onCancel: () => void;
 }
 
-interface CtAddRequirementTheme {
+interface CtEditRequirementTheme {
   product: {};
 }
 
-const defaultTheme = (theme: any): CtAddRequirementTheme =>
+const defaultTheme = (theme: any): CtEditRequirementTheme =>
   merge(
     {
       product: {},
-    } as CtAddRequirementTheme,
+    } as CtEditRequirementTheme,
     theme
   );
 
-const computeHostStyles = (_theme: CtAddRequirementTheme) => {
+const computeHostStyles = (_theme: CtEditRequirementTheme) => {
   return {
     className: css``,
   };
 };
 
-interface CtAddRequirementState {
+interface CtEditRequirementState {
   selectedProduct?: any;
   quantity?: number;
 }
 
-class CtAddRequirementImpl extends React.PureComponent<CtAddRequirementProps> {
-  state: CtAddRequirementState;
+class CtEditRequirementImpl extends React.PureComponent<CtEditRequirementProps> {
+  state: CtEditRequirementState;
 
   constructor(props) {
     super(props);
@@ -58,7 +59,7 @@ class CtAddRequirementImpl extends React.PureComponent<CtAddRequirementProps> {
   };
 
   render() {
-    const { product, onCancel, onAdded, theme: incomingTheme, ...defaultHostProps } = this.props;
+    const { product, onCancel, onAdded, theme: incomingTheme, forwardedRef, ...defaultHostProps } = this.props;
     const theme = defaultTheme(incomingTheme);
     const hostProps = mergeProps(defaultHostProps, computeHostStyles(theme));
     const { selectedProduct, quantity } = this.state;
@@ -81,6 +82,7 @@ class CtAddRequirementImpl extends React.PureComponent<CtAddRequirementProps> {
       <Dialog
         content={content}
         onCancel={onCancel}
+        ref={forwardedRef}
         scrim={false}
         actions={[<Button emphaze={ButtonEmphaze.High} label={'Add'} onClick={this.onValidate} />]}
       />
@@ -88,4 +90,8 @@ class CtAddRequirementImpl extends React.PureComponent<CtAddRequirementProps> {
   }
 }
 
-export const CtEditRequirement = withTheme(CtAddRequirementImpl);
+const CtEditRequirementWithTheme = withTheme(CtEditRequirementImpl);
+
+export const CtEditRequirement = React.forwardRef<HTMLDivElement, CtEditRequirementProps>((props, ref) => (
+  <CtEditRequirementWithTheme {...props} forwardedRef={ref} />
+));

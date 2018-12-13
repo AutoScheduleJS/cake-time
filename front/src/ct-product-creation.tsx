@@ -93,8 +93,9 @@ class CtProductCreationImpl extends React.PureComponent<CtProductCreationProps> 
       ],
       content,
       onCancel: this.props.onCancel,
-      hostProps,
+      ...hostProps,
     };
+    console.log('dialogProps', dialogProps);
     return <Dialog style={style} ref={forwardedRef} {...dialogProps} scrim={true} />;
   }
 }

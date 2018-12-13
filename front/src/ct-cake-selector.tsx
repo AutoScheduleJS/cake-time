@@ -108,12 +108,16 @@ class CtCakeSelectorImpl extends React.PureComponent<
               />
             ))}
           </div>
-          <Fab onClick={this.handleRecipeCreationRequest} />
         </div>
       ),
       ...defaultHostProps,
     };
-    return <Dialog style={style} ref={forwardedRef} {...dialogProps} />;
+    return (
+      <React.Fragment>
+        <Dialog style={style} ref={forwardedRef} {...dialogProps} />
+        <Fab onClick={this.handleRecipeCreationRequest} />
+      </React.Fragment>
+    );
   }
 }
 
