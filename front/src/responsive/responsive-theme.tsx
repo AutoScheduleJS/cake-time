@@ -31,7 +31,7 @@ export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
     const theme = props.handleBreakpoint(props.baseTheme, this.activeRules);
     this.state = { theme };
     this.handleMatchChange = this.handleMatchChange.bind(this);
-    this.mqls.forEach(mql => mql.mql.addListener(this.handleMatchChange));
+    this.mqls.forEach(mql => mql.mql.addListener(this.handleMatchChange as any));
   }
 
   render() {
@@ -41,7 +41,7 @@ export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
   }
 
   componentWillUnmount() {
-    this.mqls.forEach(mql => mql.mql.removeListener(this.handleMatchChange));
+    this.mqls.forEach(mql => mql.mql.removeListener(this.handleMatchChange as any));
   }
 
   get activeRules() {

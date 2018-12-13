@@ -7,7 +7,7 @@ import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
 
 interface CtDirectionsFromState {
-  cakeId?: number;
+  cakeId?: string;
 }
 
 interface CtDirectionsProps extends React.HTMLAttributes<HTMLDivElement> {

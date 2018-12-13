@@ -175,7 +175,7 @@ const LabelClass = (
   };
 };
 
-const InputClass = (theme: TextInputTheme) => {
+const InputClass = (_theme: TextInputTheme) => {
   const base = css`
     box-sizing: border-box;
     background-clip: padding-box;

@@ -47,13 +47,13 @@ const emotionTheme = {
   },
 };
 
-const breakKeyToNewTheme = (theme: any, key: string): any => {
+const breakKeyToNewTheme = (oldTheme: any, key: string): any => {
   const widthKey = +key;
   if (Number.isNaN(widthKey)) {
     return;
   }
   if (widthKey < BreakpointsEnum.small2) {
-    if (theme.layout.name === 'small') {
+    if (oldTheme.layout.name === 'small') {
       return;
     }
     return {
@@ -62,12 +62,12 @@ const breakKeyToNewTheme = (theme: any, key: string): any => {
     };
   }
   if (widthKey < BreakpointsEnum.medium1) {
-    if (theme.layout.name === 'small4') {
+    if (oldTheme.layout.name === 'small4') {
       return;
     }
     return { layout: { name: 'small4' }, dialog: { fullscreen: false } };
   }
-  if (theme.layout.name !== 'large') {
+  if (oldTheme.layout.name !== 'large') {
     return {
       layout: { name: 'large', gutter: '24px', margin: '24px' },
       dialog: { fullscreen: true },

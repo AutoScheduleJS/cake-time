@@ -7,7 +7,7 @@ import { connect } from './util/connect';
 import { merge, mergeProps } from './util/hoc.util';
 
 interface CtShoppingListFromState {
-  cakeId?: number;
+  cakeId?: string;
 }
 
 interface CtShoppingListProps extends React.HTMLAttributes<HTMLDivElement> {

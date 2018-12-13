@@ -57,7 +57,8 @@ export class MorphWaa extends React.Component<MorphWaaProps> {
 
   animate = () => {
     if (!this.fromInfo || !this.toInfo) {
-      return setTimeout(() => this.animate(), 0);
+      setTimeout(() => this.animate(), 0);
+      return;
     }
     if (this.fromNode) {
       this.fromInfo = elemToChildInfo(this.fromNode);
@@ -71,7 +72,7 @@ export class MorphWaa extends React.Component<MorphWaaProps> {
 
     const duration = 200;
     const direction = isForward ? 'normal' : 'reverse';
-    const fromAnim = fromClone.animate(
+    fromClone.animate(
       [
         {
           opacity: 1,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { mergeProps } from './hoc.util';
 
 export const connect = <T, U>(selector: (s: T) => U, state$: Observable<T>) => {
   return <C, U>(WrappedComponent: React.ComponentType<C & U & { children?: React.ReactNode }>) => {
@@ -15,8 +16,8 @@ export const connect = <T, U>(selector: (s: T) => U, state$: Observable<T>) => {
       }
 
       public render() {
-        const state = this.state as Readonly<U>;
-        return <WrappedComponent {...state} {...this.props} />;
+        const hostProps = mergeProps(this.state, this.props);
+        return <WrappedComponent {...hostProps} />;
       }
     };
   };

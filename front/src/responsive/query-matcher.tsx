@@ -26,7 +26,7 @@ export class QueryMatcher extends React.Component<QueryMatcherProps> {
       matches: this.mql.matches,
     };
     this.handleMatchChange = this.handleMatchChange.bind(this);
-    this.mql.addListener(this.handleMatchChange);
+    this.mql.addListener(this.handleMatchChange as any);
   }
 
   render() {
@@ -43,7 +43,7 @@ export class QueryMatcher extends React.Component<QueryMatcherProps> {
   }
 
   componentWillUnmount() {
-    this.mql.removeListener(this.handleMatchChange);
+    this.mql.removeListener(this.handleMatchChange as any);
   }
 
   private handleMatchChange(e: MediaQueryList) {
