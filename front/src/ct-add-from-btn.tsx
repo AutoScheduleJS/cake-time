@@ -45,7 +45,7 @@ class CtAddFromBtnImpl extends React.PureComponent<CtAddFromBtnProps> {
       <MorphWaa
         FromElem={Button}
         ToElem={toElem}
-        state={this.state.isCreating ? 'from' : 'to'}
+        state={this.state.isCreating ? 'to' : 'from'}
         keepFrom={true}
         fromProps={fromProps}
         toProps={toProps}
