@@ -28,6 +28,13 @@ const suggestionsClassname = css`
   display: flex;
   justify-content: space-around;
 `;
+
+const fabClass = css`
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+`;
+
 class CtCakeSelectorImpl extends React.PureComponent<
   CtCakeSelectorFromState & CtCakeSelectorProps
 > {
@@ -115,7 +122,7 @@ class CtCakeSelectorImpl extends React.PureComponent<
     return (
       <React.Fragment>
         <Dialog style={style} ref={forwardedRef} {...dialogProps} />
-        <Fab onClick={this.handleRecipeCreationRequest} />
+        <Fab className={fabClass} onClick={this.handleRecipeCreationRequest} />
       </React.Fragment>
     );
   }
