@@ -108,4 +108,4 @@ link: instruction -> #4 prop: pos:'2'
     - code
     - name
     - cypher request to match
-- :Subrecipe & :Merchandise could have the same schema than :Recipe
+- :Subrecipe & :Merchandise could have the same schema than :Recipe. Because merchandise often have special instructions before use.
