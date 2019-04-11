@@ -4,7 +4,7 @@ import * as React from 'react';
 interface ResponsiveThemeProps {
   baseTheme: any;
   rules: Array<{ key: string; query: string }>;
-  handleBreakpoint: (theme: any, key: string[]) => any;
+  handleBreakpoint: (theme: any, keys: { [key: string]: boolean }) => any;
 }
 
 export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
@@ -28,7 +28,7 @@ export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
       (acc, cur) => ({ ...acc, [cur.key]: cur.mql.matches }),
       {}
     );
-    const theme = props.handleBreakpoint(props.baseTheme, this.activeRules);
+    const theme = props.handleBreakpoint(props.baseTheme, this.enabledRules);
     this.state = { theme };
     this.handleMatchChange = this.handleMatchChange.bind(this);
     this.mqls.forEach(mql => mql.mql.addListener(this.handleMatchChange as any));
@@ -44,13 +44,6 @@ export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
     this.mqls.forEach(mql => mql.mql.removeListener(this.handleMatchChange as any));
   }
 
-  get activeRules() {
-    return Object.entries(this.enabledRules).reduce(
-      (acc, [rule, isMatched]) => (isMatched ? [...acc, rule] : acc),
-      [] as string[]
-    );
-  }
-
   private handleMatchChange(e: MediaQueryList) {
     /**
      *  Warning: if browser aren't unified about e.media formatting, it will not work.
@@ -64,7 +57,7 @@ export class ResponsiveTheme extends React.Component<ResponsiveThemeProps> {
     }
     this.enabledRules[rule.key] = e.matches;
     this.setState({
-      theme: this.props.handleBreakpoint(this.state.theme, this.activeRules),
+      theme: this.props.handleBreakpoint(this.state.theme, this.enabledRules),
     });
   }
 }

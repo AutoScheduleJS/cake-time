@@ -47,47 +47,39 @@ const emotionTheme = {
   },
 };
 
-const breakKeyToNewTheme = (oldTheme: any, key: string): any => {
-  const widthKey = +key;
-  if (Number.isNaN(widthKey)) {
-    return;
-  }
-  if (widthKey < BreakpointsEnum.small2) {
-    if (oldTheme.layout.name === 'small') {
-      return;
-    }
+const breakKeyToNewTheme = (_oldTheme: any, keys: { [key: string]: boolean }): any => {
+  if (keys['' + BreakpointsEnum.small2]) {
     return {
       layout: { name: 'small', gutter: '16px', margin: '16px' },
       dialog: { fullscreen: true },
     };
   }
-  if (widthKey < BreakpointsEnum.medium1) {
-    if (oldTheme.layout.name === 'small4') {
-      return;
-    }
-    return { layout: { name: 'small4' }, dialog: { fullscreen: false } };
-  }
-  if (oldTheme.layout.name !== 'large') {
+  if (keys['' + BreakpointsEnum.medium1]) {
     return {
-      layout: { name: 'large', gutter: '24px', margin: '24px' },
-      dialog: { fullscreen: true },
+      layout: { name: 'small4' },
+      dialog: { fullscreen: false },
     };
   }
+  return {
+    layout: { name: 'large', gutter: '24px', margin: '24px' },
+    dialog: { fullscreen: true },
+  };
 };
 
-const handleBreakpoints = (theme: any, keys: string[]) => {
-  return keys.reduce((acc, key) => {
-    return merge(acc, breakKeyToNewTheme(acc, key));
-  }, theme);
+const handleBreakpoints = (theme: any, keys: { [key: string]: boolean }) => {
+  return merge(theme, breakKeyToNewTheme(theme, keys));
 };
 
-const rules = Object.entries(breakpoints).map(([key, val], i, arr) => {
-  const query = `(min-width: ${val}px)`;
-  if (i === arr.length - 1) {
-    return { key, query };
-  }
-  return { key, query: `(max-width: ${arr[i + 1][1] - 1}px) and ${query}` };
-});
+const rules = [
+  {
+    key: '' + BreakpointsEnum.small2,
+    query: `(max-width: ${breakpoints[BreakpointsEnum.small2]}px)`,
+  },
+  {
+    key: '' + BreakpointsEnum.medium1,
+    query: `(max-width: ${breakpoints[BreakpointsEnum.medium1]}px)`,
+  },
+];
 
 const app = (
   <ResponsiveTheme baseTheme={emotionTheme} rules={rules} handleBreakpoint={handleBreakpoints}>
