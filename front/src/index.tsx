@@ -7,7 +7,6 @@ import { merge } from './util/hoc.util';
 
 const emotionTheme = {
   layout: {
-    name: 'large',
     gutter: '24px',
     margin: '24px',
   },
@@ -50,18 +49,17 @@ const emotionTheme = {
 const breakKeyToNewTheme = (_oldTheme: any, keys: { [key: string]: boolean }): any => {
   if (keys['' + BreakpointsEnum.small2]) {
     return {
-      layout: { name: 'small', gutter: '16px', margin: '16px' },
+      layout: { gutter: '16px', margin: '16px' },
       dialog: { fullscreen: true },
     };
   }
   if (keys['' + BreakpointsEnum.medium1]) {
     return {
-      layout: { name: 'small4' },
       dialog: { fullscreen: false },
     };
   }
   return {
-    layout: { name: 'large', gutter: '24px', margin: '24px' },
+    layout: { gutter: '24px', margin: '24px' },
     dialog: { fullscreen: true },
   };
 };
